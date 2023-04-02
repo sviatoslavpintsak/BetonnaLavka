@@ -7,10 +7,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    
+    <%#= javascript_importmap_tags %>
+    <%= javascript_include_tag "application" , defer: true %>
+  
+
   </head>
 
-  <body>
+  <body class="bg-warning p-2 text-dark bg-opacity-75">
+    <%= render 'shared/header'%>
     <%= yield %>
+    <%= render 'shared/footer'%>
   </body>
 </html>

@@ -1,0 +1,12 @@
+<h1>Products</h1>
+
+<div id="products" class="d-flex justify-content-center">
+  <% @products.each do |product| %>
+   <div >
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+    </div>
+  <% end %>
+</div>
