@@ -7,10 +7,14 @@ default: &default
 
 development:
   <<: *default
-  database: betonnalavla_dev
+  database: betonnalavka_dev
+  
+development:
+  <<: *default
+  database: betonnalavka_test
 
 
 production:
   <<: *default
-  database: betonnalavla_prod
+  database: betonnalavka_prod
 
