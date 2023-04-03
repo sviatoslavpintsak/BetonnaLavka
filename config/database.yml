@@ -20,4 +20,4 @@ production:
   database: betonnalavka_prod
   username: slavik
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  host: https://dashboard.heroku.com
+  host: https://betonna-lavka.herokuapp.com
