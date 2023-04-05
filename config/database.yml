@@ -9,7 +9,7 @@ development:
   <<: *default
   database: betonnalavka_dev
   
-development:
+test:
   <<: *default
   database: betonnalavka_test
 
