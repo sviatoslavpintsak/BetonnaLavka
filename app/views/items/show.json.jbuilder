@@ -1,1 +1,0 @@
-json.partial! "admin/item", item: @item

@@ -17,5 +17,12 @@
     <strong>Weight:</strong>
     <%= product.weight%>
   </p>
-
+    <%= button_to "Buy it", buy_product_path(product), method: :post, class: "btn btn-primary" %>
+  <%= form_tag(buy_product_path(product), method: :post) do %>
+    <div>
+      <%= label_tag(:quantity, "Quantity:") %>
+      <%= number_field_tag(:quantity, 1, min: 1, max: 10) %>
+    </div>
+    
+  <% end %>
 </div>

@@ -10,13 +10,14 @@
     
     <%#= javascript_importmap_tags %>
     <%= javascript_include_tag "application" , defer: true %>
-  
-
   </head>
 
-  <body class="bg-warning p-2 text-dark bg-opacity-75">
+  <body class="text-dark d-flex flex-column h-100">
     <%= render 'shared/header'%>
-    <%= yield %>
+      <main class="container-md p-2 flex-shrink-0">
+        <%#= render 'layouts/flash_message'%>
+        <%= yield %>
+      </main>
     <%= render 'shared/footer'%>
   </body>
 </html>

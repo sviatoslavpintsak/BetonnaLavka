@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy buy]
 
   # GET /products or /products.json
   def index
@@ -55,6 +55,20 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def buy
+    @product = Product.find(params[:id])
+    #Rails.logger.info("PARAMS: #{params.inspect}")
+    @quantity = params[:quantity].to_i || 1
+    @cart = Cart.new(product_id:  params[:id], quantity: @quantity , products_price: @product.price)
+
+    if @cart.save
+      flash[:success] = 'Product added to cart'
+    else
+      flash[:error] = 'Could not add product to cart'
+    end
+    redirect_to @product
   end
 
   private
