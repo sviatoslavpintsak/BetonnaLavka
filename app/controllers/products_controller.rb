@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy buy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /products or /products.json
   def index
@@ -61,7 +62,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     #Rails.logger.info("PARAMS: #{params.inspect}")
     @quantity = params[:quantity].to_i || 1
-    @cart = Cart.new(product_id:  params[:id], quantity: @quantity , products_price: @product.price)
+    @cart = Cart.new(product_id:  params[:id], quantity: params[:quantity], products_price: @product.price, products_product: @product.product, user_id: current_user.id)
 
     if @cart.save
       flash[:success] = 'Product added to cart'
@@ -79,6 +80,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:categorie, :product, :price, :weight)
+      params.require(:product).permit(:categorie, :product, :price, :weight, :pics)
     end
 end

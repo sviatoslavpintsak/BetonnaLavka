@@ -14,10 +14,10 @@
 
   <body class="text-dark d-flex flex-column h-100">
     <%= render 'shared/header'%>
-      <main class="container-md p-2 flex-shrink-0">
+      <main class="container-md p-2 flex-shrink-0 extend_scroll">
         <%#= render 'layouts/flash_message'%>
         <%= yield %>
       </main>
-    <%= render 'shared/footer'%>
+    <%= render 'shared/footer', class:'footer'%>
   </body>
 </html>

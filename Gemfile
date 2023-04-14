@@ -52,6 +52,11 @@ gem "bootsnap", require: false
 gem 'bootstrap', '~>5.2', '>=5.2.3'
 gem 'jquery-rails'
 
+#pics
+gem 'image_processing'
+gem 'aws-sdk-s3', require: false
+
+
 # auth
 gem 'devise'
 

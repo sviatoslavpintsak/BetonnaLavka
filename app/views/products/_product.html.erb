@@ -17,12 +17,14 @@
     <strong>Weight:</strong>
     <%= product.weight%>
   </p>
-    <%= button_to "Buy it", buy_product_path(product), method: :post, class: "btn btn-primary" %>
+
+    <strong>Pics:</strong>
+    <%= image_tag product.pics if product.pics.present?  %>
+  
   <%= form_tag(buy_product_path(product), method: :post) do %>
-    <div>
+      <%= submit_tag 'Buy it',class:'btn btn-primary'%><br>
       <%= label_tag(:quantity, "Quantity:") %>
-      <%= number_field_tag(:quantity, 1, min: 1, max: 10) %>
-    </div>
+      <%= number_field_tag(:quantity, 1, min: 1, max: 100) %>
+      <% end%>
     
-  <% end %>
 </div>

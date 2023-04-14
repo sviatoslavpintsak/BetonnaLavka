@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   
- 
+
   #get 'admin', to: 'admin#index' 
 end
