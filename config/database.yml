@@ -16,4 +16,4 @@ test:
 production:
   <<: *default
   database: betonnalavka_prod
-  url: <%= ENV['DATADASE_URL'] || "postgres://slavik:slavik@localhost:5434/betonnalavka_prod" %>
+  url: <%= ENV['DATADASE_URL'] || "postgres://slavik:slavik@localhost:80/betonnalavka_prod" %>
