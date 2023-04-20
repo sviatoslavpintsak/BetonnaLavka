@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
     #Rails.logger.info("PARAMS: #{params.inspect}")
     @quantity = params[:quantity].to_i || 1
     @subtotal = @quantity * @product.price 
-    @cart = Cart.new(product_id:  params[:id], quantity: params[:quantity], products_price: @product.price, products_product: @product.product, user_id: current_user.id, subtotal: @subtotal )
+    @cart = Cart.new(product_id:  params[:id], quantity: params[:quantity], products_product: @product.product, user_id: current_user.id, subtotal: @subtotal )
   
     if @cart.save
       flash[:success] = 'Product added to cart'
