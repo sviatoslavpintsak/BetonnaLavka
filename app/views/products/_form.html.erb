@@ -12,8 +12,8 @@
   <% end %>
 
   <div>
-    <%= form.label :categorie, style: "display: block" %>
-    <%= form.text_field :categorie %>
+    <%= form.label :categorie %>
+    <%= form.select :category_id, Category.all.map{ |c| [c.name, c.id] }, { prompt: "Select a category" } %>
   </div>
 
   <div>

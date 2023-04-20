@@ -1,0 +1,21 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @carts.select{|cart| cart.user_id == current_user.id}each do |item| %>
+      <tr>
+        <td><%= item.products_product %></td>
+        <td><%= item.products_price %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.subtotal %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
